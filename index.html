@@ -12,14 +12,16 @@
         <h1>Support Our Museum</h1>
         <p>Enter the amount you wish to pay:</p>
         <input type="number" id="amount" placeholder="Enter amount in ₹" min="1" required>
-        <button id="pay-button">Generate QR Code</button>
+        <div class="button-container">
+            <button id="pay-button">Generate QR Code</button>
+            <button id="pay-via-app-button">Pay via App</button>
+        </div>
 
         <!-- QR Code Display -->
-        <canvas id="qr-code"></canvas>
+        <div id="qr-code-container">
+            <canvas id="qr-code"></canvas>
+        </div>
 
-        <!-- New Pay via App button -->
-        <button id="pay-via-app-button">Pay via App</button>
-        
         <!-- Optional: Display the UPI URL -->
         <p id="upi-url"></p>
     </div>
