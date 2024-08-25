@@ -4,7 +4,7 @@ const qrCodeContainer = document.getElementById('qr-code-container');
 
 // UPI ID and constants
 const upiID = 'memymyselfanish@okicici';  // Replace with your UPI ID
-const name = 'museum-eg'; // Replace with your merchant name or purpose
+const name = 'museum'; // Replace with the payer's full name
 const currency = 'INR';
 
 payButton.addEventListener('click', function () {
@@ -39,7 +39,7 @@ payViaAppButton.addEventListener('click', function () {
         return;
     }
 
-    // UPI Intent URL (simplified version)
+    // UPI Intent URL with integrated format
     const upiIntentUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
 
     console.log("UPI Intent URL: ", upiIntentUrl); // Logs the generated UPI URL to the console for debugging.
