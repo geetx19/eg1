@@ -40,7 +40,7 @@ payViaAppButton.addEventListener('click', function () {
     }
 
     // UPI Intent URL (simplified version)
-    const upiIntentUrl = `upi://pay?pa=${upiID}&am=${amount}&cu=${currency}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+    const upiIntentUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
 
     console.log("UPI Intent URL: ", upiIntentUrl); // Logs the generated UPI URL to the console for debugging.
 
