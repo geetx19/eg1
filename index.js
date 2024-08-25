@@ -3,8 +3,8 @@ const payViaAppButton = document.getElementById('pay-via-app-button');
 const qrCodeContainer = document.getElementById('qr-code-container');
 
 // UPI ID and constants
-const upiID = 'memymyselfanish@okicici';  // Replace with your UPI ID
-const name = 'museum'; // Replace with the payer's full name
+const upiID = 'memymyselfanishD@okicici';  // Replace with your UPI ID
+const name = 'FNAME SNAME K'; // Replace with the payer's full name
 const currency = 'INR';
 
 payButton.addEventListener('click', function () {
@@ -39,15 +39,11 @@ payViaAppButton.addEventListener('click', function () {
         return;
     }
 
-    // UPI Intent URL with integrated format
-    const upiIntentUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
+    // Google Pay deep link
+    const upiIntentUrl = `tez://upi/pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
 
     console.log("UPI Intent URL: ", upiIntentUrl); // Logs the generated UPI URL to the console for debugging.
 
-    // Redirect to UPI app using the custom intent
+    // Redirect to Google Pay using the custom intent
     window.location.href = upiIntentUrl;
-
-    // Hide QR code container and adjust button margin
-    qrCodeContainer.style.display = 'none';
-    payViaAppButton.style.marginTop = '5px';
 });
