@@ -4,9 +4,9 @@ const qrCodeContainer = document.getElementById('qr-code-container');
 
 // UPI ID, Name, Transaction Note, and Currency as constants
 const upiID = 'memymyselfanish@okicici';  // Replace with your UPI ID
-const name = 'museum-eg';    // Replace with your merchant name or purpose
-const transactionNote = 'Donation for museum';
-const currency = 'INR';
+const name = 'Museum Donation';  // Replace with the payee name
+const amount = document.getElementById('amount').value;  // Amount entered by the user
+const currency = 'INR';  // Currency
 
 payButton.addEventListener('click', function () {
   const amount = document.getElementById('amount').value;
@@ -16,7 +16,7 @@ payButton.addEventListener('click', function () {
   }
 
 // UPI URL format
-const upiUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(transactionNote)}&am=${amount}&cu=${currency}`;
+const upiUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
 
 // Generate QR code
 const qr = new QRious({
