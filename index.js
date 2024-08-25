@@ -2,10 +2,9 @@ const payButton = document.getElementById('pay-button');
 const payViaAppButton = document.getElementById('pay-via-app-button');
 const qrCodeContainer = document.getElementById('qr-code-container');
 
-// UPI ID, Name, Transaction Note, and Currency as constants
+// UPI ID and constants
 const upiID = 'memymyselfanish@okicici';  // Replace with your UPI ID
-const name = 'museum-eg';    // Replace with your merchant name or purpose
-const transactionNote = 'Donation for museum';
+const name = 'museum-eg'; // Replace with your merchant name or purpose
 const currency = 'INR';
 
 payButton.addEventListener('click', function () {
@@ -16,7 +15,7 @@ payButton.addEventListener('click', function () {
     }
 
     // UPI URL format for QR code generation
-    const upiUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(transactionNote)}&am=${amount}&cu=${currency}`;
+    const upiUrl = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=${currency}`;
 
     // Generate QR code
     const qr = new QRious({
@@ -40,14 +39,8 @@ payViaAppButton.addEventListener('click', function () {
         return;
     }
 
-    // UPI Intent URL for the app (including payee name and transaction note)
-    const upiIntentUrl = `intent://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(transactionNote)}&am=${amount}&cu=${currency}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-
-    // Check if the amount is within a certain limit to avoid errors
-    if (parseInt(amount) > 10000) {  // Example: setting an arbitrary limit
-        alert('The amount exceeds the transaction limit. Please enter a smaller amount.');
-        return;
-    }
+    // UPI Intent URL (simplified version)
+    const upiIntentUrl = `upi://pay?pa=${upiID}&am=${amount}&cu=${currency}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
 
     console.log("UPI Intent URL: ", upiIntentUrl); // Logs the generated UPI URL to the console for debugging.
 
